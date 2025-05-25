@@ -9,6 +9,8 @@ public class Main {
             String name = inputBookName();
             int pageCount = inputPageCount();
             int price = inputPrice();
+            addBook(name);
+            addBook(name, pageCount);
             addBook(name, pageCount, price);
             //todo использовать новый метод тут
             printInfo();
@@ -34,10 +36,14 @@ public class Main {
         addBook(bookName, 0, 0);
     }
 
+    public static void addBook(String bookName, int pageCount) {
+        addBook(bookName, pageCount, 0);
+    }
+
     public static void addBook(String bookName, int pageCount, int price) {
         booksInfo = booksInfo + bookName +
-                " - " + (pageCount > 0 ? pageCount : "N/A") + " стр." +
-                " - " + (price > 0 ? price : "N/A")+ " р.\n";
+                " - " + (pageCount > 0 ? pageCount  + " стр." : "N/A") +
+                " - " + (price > 0 ? price + "р." : "N/A")+ " \n";
     }
     public static void printInfo() {
         System.out.println(booksInfo);
